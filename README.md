@@ -1,24 +1,40 @@
-# README
+# _Rails Shopping_
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### _A simple Rails app with products and a shopping cart, 12.03.2017_
 
-Things you may want to cover:
+#### By _**Margaret Berry**_
 
-* Ruby version
+## Setup/Installation Requirements
+_This app was created with Ruby 2.4.1._
 
-* System dependencies
+1. `$ git clone` [this repository](https://github.com/codemargaret/rails_shopping.git)
+2. `$ cd rails_shopping`
+3. `$ bundle install`
+4. `$ rails db:create`
+5. `$ rails db:migrate`
+6. `$ rails db:test:prepare`
+6. `$ rails db:seed`
+5. `$ rails s` _to view on localhost:3000_
 
-* Configuration
+## Project Goals
+_Practice adding a shopping cart to a Rails application._
 
-* Database creation
+## Known Bugs
+_The user is currently not able to view the shopping cart._
 
-* Database initialization
+## Future Features
+_The user can view the shopping car and add and delete items._
 
-* How to run the test suite
+## Support and contact details
+_If you have any updates, questions, or suggestions please contact [Margaret] or make a contribution._
 
-* Services (job queues, cache servers, search engines, etc.)
+[Margaret]: mailto:codeberry1@gmail.com
 
-* Deployment instructions
+## Technologies Used
+* _Ruby-on-Rails_
+* _ActiveRecord_
 
-* ...
+### License
+*This software is licensed under the MIT license.*
+
+Copyright (c) 2017 **_Margaret Berry_**

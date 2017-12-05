@@ -4,4 +4,9 @@ class OrderItem < ApplicationRecord
 
   validates :quantity, :presence => true
   validates :quantity, :inclusion => { :in => 1..1000 }
+
+  def switcheroo
+
+  end
+
 end

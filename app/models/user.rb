@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :orders
+  has_one :account
+  # has_many :orders, :through => :accounts
 
   validates :email, :presence => true
   validates :email, :uniqueness => true

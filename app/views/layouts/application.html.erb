@@ -7,8 +7,37 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+    <ul><%= link_to('Shopping', root_path) %></ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        </li>
+      </ul>
+      <% if current_user %>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+        <% else %>
+        <h5>Please Login or Register <%= link_to('Login', new_user_session_path)  %> <%= link_to('Register', new_user_registration_path)  %></h5>
+        <% end %>
+    </div>
+  </nav>
+</header>
   <body>
-    <%= yield %>
+    <div class='container'>
+      <% flash.each do |key, value| %>
+         <div class='alert alert-info alert-dismissible fade show' role='alert'>
+           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+           <%= value %>
+         </div>
+       <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

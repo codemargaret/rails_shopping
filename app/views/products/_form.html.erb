@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-body">
+    <%= form_for @product do |form| %>
+      <div class="field">
+        <%= form.label :price %>
+        <%= form.number_field :price, in: 1.00..1000.00, step: 0.01 %>
+      </div>
+
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :details %>
+        <%= form.text_field :details %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>

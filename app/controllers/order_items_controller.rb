@@ -1,6 +1,8 @@
 class OrderItemsController < ApplicationController
+  # helper_method :update_quantity
   def create
     @order = current_order
+    # OrderItem.update_quantity(@order)
     if @order.order_items.exists?(:product_id => item_params[:product_id])
       order_item = @order.order_items.where(:product_id => item_params[:product_id]).first
       order_item.quantity += item_params[:quantity].to_i

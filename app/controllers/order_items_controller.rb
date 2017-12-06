@@ -3,9 +3,7 @@ class OrderItemsController < ApplicationController
     @order = current_order
     if @order.order_items.exists?(:product_id => item_params[:product_id])
       order_item = @order.order_items.where(:product_id => item_params[:product_id]).first
-      current_quantity = order_item.quantity
-      quantity_to_add = item_params[:quantity].to_i
-      order_item.quantity = current_quantity + quantity_to_add
+      order_item.quantity += item_params[:quantity].to_i
       order_item.save
     else
       @item = @order.order_items.new(item_params)

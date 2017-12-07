@@ -2,7 +2,7 @@
  <p><%= product.name %> | <%= number_to_currency product.price %>
     | <button class="btn btn-dark" id="detailButton">See Details</button><br>
    <span id="<%= product.id %>" onclick="this.style."> <%= product.details %> </span>
- <%= form_for @order_item do |f| %>
+ <%= form_for @order_item, remote: true do |f| %>
    <%= f.hidden_field :product_id, value: product.id %>
    <%= f.number_field :quantity %>
    <%= f.submit "Add to cart" %>

@@ -1,3 +1,5 @@
+require "stripe"
+
 class ChargesController < ApplicationController
 
   def new
@@ -18,6 +20,9 @@ class ChargesController < ApplicationController
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
     )
+
+    current_order.update_status
+    session.order_id = nil
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

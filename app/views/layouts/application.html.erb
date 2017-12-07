@@ -20,7 +20,7 @@
         </li>
       </ul>
       <% if current_user %>
-        <%= current_user.username %> | Your Cart: <%= link_to(current_order.total_price, cart_path) %>,  <%= current_order.order_items.collect { |item| item.quantity }.sum %> items | <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+        <%= current_user.username %> | Your Cart: <%= number_to_currency  link_to(current_order.total_price, cart_path) %>,  <%= current_order.order_items.collect { |item| item.quantity }.sum %> items | <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
         <% else %>
         <h5>Please Login or Register <%= link_to('Login', new_user_session_path)  %> <%= link_to('Register', new_user_registration_path)  %></h5>
         <% end %>

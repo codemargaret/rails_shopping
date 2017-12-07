@@ -1,4 +1,4 @@
-require "stripe"
+
 
 class ChargesController < ApplicationController
 
@@ -7,7 +7,9 @@ class ChargesController < ApplicationController
 
   def create
     # Amount in cents
-    @amount = 500
+    @amount = ((current_order.total_price) * 100).to_i
+    @order = current_order
+
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
@@ -21,8 +23,7 @@ class ChargesController < ApplicationController
       :currency    => 'usd'
     )
 
-    current_order.update_status
-    session.order_id = nil
+
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

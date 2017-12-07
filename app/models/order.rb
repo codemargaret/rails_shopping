@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   has_many :order_items
 
   before_save :update_total
-  before_create :update_status
+  # before_create :update_status
 
   # validates :status, :presence => true
   # validates :account_id, :presence => true
@@ -15,11 +15,11 @@ class Order < ApplicationRecord
 
   private
 
-  def update_status
-    if self.status == 'pending'
-      self.status = "complete"
-    end
-  end
+  # def update_status
+  #   if self.status == 'pending'
+  #     self.status = "complete"
+  #   end
+  # end
 
   def update_total
     self.total_price = calculate_total

@@ -1,5 +1,26 @@
 
 
-<% @orders.each do |order| %>
- <p><%= order.created_at %> | <%= number_to_currency order.total_price %>
+<% @user_orders.each do |order| %>
+ <p><%= order.created_at %> | <%= number_to_currency order.total_price %> | <%= order.account_id %></p>
+    <!-- <%= order.order_items.each do |order_item| %>
+    <% order_item.product_id %>
+    <% end %> -->
+
+<% end %>
+<hr>
+<% @user_order_items.each do |user_order_item| %>
+  <%= user_order_item.product_id %>
+  <%= user_order_item.quantity %>
+<% end %>
+<hr>
+<% @user_products.each do |product| %>
+  Name: <%= product.name %>
+<% end %>
+
+<% @things.each do |order| %>
+  Order: <%= order.id %> <br>
+  <% order.order_items.each do |product| %>
+    Name: <%= Product.find(product.product_id).name %>
+    <br>
+  <% end %>
 <% end %>

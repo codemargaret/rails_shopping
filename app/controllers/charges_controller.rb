@@ -3,6 +3,7 @@
 class ChargesController < ApplicationController
 
   def new
+    binding.pry
   end
 
   def create

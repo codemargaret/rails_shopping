@@ -18,7 +18,7 @@ gem 'jquery-rails'
 gem 'faker'
 gem 'devise', '~> 4.3'
 gem "paperclip", "~> 5.2.0"
-gem 'rails_admin', '~> 1.2'
+gem 'rails_admin', '~> 1.3.0'
 gem 'rest-client'
 gem 'stripe'
 
